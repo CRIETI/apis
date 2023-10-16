@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>APIs</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="search-container">
+                <input type="text" id="cepInput" placeholder="Digite um CEP">
+                <button id="searchButtonCep">Buscar</button>
+            </div>
+            <div class="loading-container">
+                <div id="loadingDotsCep" class="loading-dots">............</div>
+            </div>
+            <div class="image-container black-background">
+                <img src="imgs/viacep.png" alt="Imagem">
+            </div>
+        </div>
+        <div class="result-container">
+            <table id="resultTableCep">
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="search-container">
+                <select id="selectBook" name="select">
+                    <option value="9788545702870">Akira vol. 1</option>
+                    <option value="9788599296578">O Guia do Mochileiro das Galáxias</option>
+                    <option value="9788550801896">Projeto Fênix</option>
+                    <option value="9788581303079">O Pequeno Príncipe</option>
+                    <option value="9786555603330">Steve Jobs</option>
+                  </select>
+                <button id="searchButtonBook">Buscar</button>
+            </div>
+            <div class="loading-container">
+                <div id="loadingDotsBook" class="loading-dots">............</div>
+            </div>
+            <div class="image-container">
+                <img src="imgs/brasilapi.webp" alt="Imagem">
+            </div>
+        </div>
+        <div id="" class="result-container">
+            <table id="resultTableBook">
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="search-container">
+                <select id="selectPoke" name="select">
+                    <option value="pikachu">Pikachu</option>
+                    <option value="charizard">Charizard</option>
+                    <option value="rayquaza">Rayquaza</option>
+                    <option value="gengar">Gengar</option>
+                    <option value="bulbasaur">Bulbasaur</option>
+                    <option value="eevee">Eevee</option>
+                    <option value="sceptile">Sceptile</option>
+                  </select>
+                <button id="searchButtonPoke">Buscar</button>
+            </div>
+            <div class="loading-container">
+                <div id="loadingDotsPoke" class="loading-dots">............</div>
+            </div>
+            <div class="image-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="Imagem">
+            </div>
+        </div>
+        <div id="" class="result-container">
+            <table id="resultTablePoke">
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
