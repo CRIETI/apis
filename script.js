@@ -135,3 +135,46 @@ searchButtonPoke.addEventListener("click", function () {
             });
     }, 2000);
 });
+
+const searchButtonTax = document.getElementById("searchButtonTax");
+const loadingDotsTax = document.getElementById("loadingDotsTax");
+const resultTableTax = document.getElementById("resultTableTax");
+
+searchButtonTax.addEventListener("click", async function () {
+    loadingDotsTax.classList.remove("gray-dots");
+    loadingDotsTax.style.animation = "loading 2s linear infinite";
+    let valuesCurrencyResponse = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
+    let valuesCurrency = await valuesCurrencyResponse.json();
+    
+    setTimeout(function () {
+        fetch(`https://brasilapi.com.br/api/taxas/v1`)
+            .then((response) => response.json())
+            .then((data) => {
+                loadingDotsTax.style.animation = "none";
+
+                const tableContent = `
+                        <tr>
+                            <th>Selic</th>
+                            <th>CDI</th>
+                            <th>IPCA</th>
+                            <th>Dólar</th>
+                            <th>Euro</th>
+                            <th>Bitcoin</th>
+                        </tr>
+                        <tr>
+                            <td>${data[0].valor.toString().replace(".", ",")} %</td>
+                            <td>${data[1].valor.toString().replace(".", ",")} %</td>
+                            <td>${data[2].valor.toString().replace(".", ",")} %</td>
+                            <td>R$ ${valuesCurrency.USDBRL.bid.toString().replace(".", ",")}</td>
+                            <td>R$ ${valuesCurrency.EURBRL.bid.toString().replace(".", ",")}</td>
+                            <td>R$ ${valuesCurrency.BTCBRL.bid.toString().replace(".", ",")}</td>
+                        </tr>
+                    `;
+
+                resultTableTax.innerHTML = tableContent;
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar taxas:", error);
+            });
+    }, 2000);
+});
